@@ -140,7 +140,7 @@ Every tool carries a display title and `readOnlyHint` / `destructiveHint` annota
 
 Attachable as context from a client's "+" menu:
 
-- **Training Status** — adherence, next workout, recovery status
+- **Training Status** — weekly adherence, next workout, days since training
 - **Active Routine** — current program structure
 - **Recent Workouts** — last 10 session summaries
 - **Training Analysis** — AI insights and weekly review
