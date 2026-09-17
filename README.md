@@ -8,6 +8,10 @@ Connect your AI assistant to your [Povver](https://povver.ai) strength-training 
 
 This is a hosted, remote server — there is nothing to install. Sign in with your Povver account when your client prompts you.
 
+**Listed on:** [Official MCP Registry](https://registry.modelcontextprotocol.io/v0.1/servers?search=povver) (`ai.povver/mcp-server`) · [Glama](https://glama.ai/mcp/connectors/ai.povver/mcp-server) · [Smithery](https://smithery.ai/servers/povver/mcp-server)
+
+[![Glama score](https://glama.ai/mcp/connectors/ai.povver/mcp-server/badges/score.svg)](https://glama.ai/mcp/connectors/ai.povver/mcp-server) [![smithery badge](https://smithery.ai/badge/povver/mcp-server)](https://smithery.ai/servers/povver/mcp-server)
+
 ## Connect
 
 ### Claude (Desktop / web)
