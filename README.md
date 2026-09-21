@@ -1,10 +1,10 @@
 # Povver MCP Server
 
-Connect your AI assistant to your [Povver](https://povver.ai) strength-training data — Claude, Claude Code, Cursor, or any MCP-compatible client. Read workout history, track strength progress, analyze muscle-group volume, and manage routines and templates from a conversation.
+Connect your AI assistant to your [Povver](https://povver.ai/?utm_source=github&utm_medium=referral&utm_campaign=mcp_readme) strength-training data — Claude, Claude Code, Cursor, or any MCP-compatible client. Read workout history, track strength progress, analyze muscle-group volume, and manage routines and templates from a conversation.
 
 **Endpoint:** `https://mcp.povver.ai/mcp` (Streamable HTTP, OAuth 2.1)
 **Docs:** <https://mcp.povver.ai/> · `/llms.txt` · `/llms-full.txt`
-**Requires:** a Povver account with a premium subscription ([iOS app](https://povver.ai))
+**Requires:** a Povver account with a premium subscription ([iOS app](https://povver.ai/?utm_source=github&utm_medium=referral&utm_campaign=mcp_readme))
 
 This is a hosted, remote server — there is nothing to install. Sign in with your Povver account when your client prompts you.
 
