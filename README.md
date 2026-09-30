@@ -8,7 +8,9 @@ Connect your AI assistant to your [Povver](https://povver.ai/?utm_source=github&
 
 This is a hosted, remote server — there is nothing to install. Sign in with your Povver account when your client prompts you.
 
-**Listed on:** [Official MCP Registry](https://registry.modelcontextprotocol.io/v0.1/servers?search=povver) (`ai.povver/mcp-server`) · [Glama](https://glama.ai/mcp/connectors/ai.povver/mcp-server) · [Smithery](https://smithery.ai/servers/povver/mcp-server)
+Povver also publishes [strength calculators](https://povver.ai/tools?utm_source=github&utm_medium=referral&utm_campaign=mcp_readme): RPE and RIR, one rep max, DOTS, FFMI, strength standards and weekly sets, each with its method and sources.
+
+**Listed on:** [Official MCP Registry](https://registry.modelcontextprotocol.io/v0.1/servers?search=povver) (`ai.povver/mcp-server`) · [Glama](https://glama.ai/mcp/connectors/ai.povver/mcp-server) · [Smithery](https://smithery.ai/servers/povver/mcp-server) · [awesome-remote-mcp-servers](https://github.com/punkpeye/awesome-remote-mcp-servers)
 
 [![Glama score](https://glama.ai/mcp/connectors/ai.povver/mcp-server/badges/score.svg)](https://glama.ai/mcp/connectors/ai.povver/mcp-server) [![smithery badge](https://smithery.ai/badge/povver/mcp-server)](https://smithery.ai/servers/povver/mcp-server)
 
@@ -68,7 +70,7 @@ Every tool carries a display title and `readOnlyHint` / `destructiveHint` annota
 | Tool | Description |
 |------|-------------|
 | `check_connection` | Verify the connection and return basic account info (name, subscription, whether you have an active routine and logged workouts). |
-| `get_user_profile` | The user's coaching profile: goal, experience level, target training days/week, equipment preference, height, weight (with units), timezone, member-since — to tailor advice to their background and constraints. |
+| `get_user_profile` | The user's coaching profile: goal, experience level, target training days/week (the active routine's frequency, plus the onboarding answer), equipment preference, height (cm) and weight (kg) with the units the user displays, timezone, member-since — to tailor advice to their background and constraints. |
 | `get_training_snapshot` | Compact overview of your training setup: profile, active routine, next workout, last 10 sessions, and strength records. |
 | `list_routines` | List all your routines with IDs, template IDs, frequency, and which one is active. |
 | `get_routine` | Get one routine with its template names and exercise summaries. |
@@ -76,14 +78,15 @@ Every tool carries a display title and `readOnlyHint` / `destructiveHint` annota
 | `get_template` | Get one template with its full exercise list, set prescriptions (reps, weight, RIR), and per-exercise coaching notes. |
 | `list_workouts` | List recent workouts as summaries with aggregate analytics (volume, sets, reps). |
 | `get_workout` | Get one workout with full set-level data (weight, reps, RIR, set type) and computed metrics. |
-| `search_exercises` | Search the exercise catalog by name or keyword; returns name, ID, muscle groups, and equipment. |
+| `search_exercises` | Search the exercise catalog by name or keyword; returns name, ID, muscle groups, equipment and ubiquity (core \| common \| rare — how likely a typical gym is to have it). |
 | `get_strength_climb` | Your Strength Climb — the headline strength-progress signal at the top of the Intelligence tab: median % gain across qualifying lifts, per-state counts (climbing/holding/stalling/deloading/building), the leading lift, the climb line, and per-lift constituents. The PRIMARY strength signal — prefer it over the deprecated training score. |
 | `get_training_insights` | AI-generated insights and your latest weekly review: observations, guardrail alerts, fatigue, balance, trends, the strength_climb, training_context (volume completion, adherence, fatigue), and per-muscle muscle_volume (hard sets + zone). Also carries the deprecated training score (0-10) for now — prefer strength_climb + training_context. |
-| `get_muscle_state` | A muscle group's synthesized assessment: weekly hard sets, effective volume with volume zone + MEV/MAV/MRV targets, fatigue (ACWR), plateau status, e1RM trends, periodization phase, per-muscle strength_climb, and reasoning. |
+| `get_muscle_state` | A muscle group's synthesized assessment: weekly sets (primary + ½ synergist) with volume zone + MEV/MAV/MRV landmarks, effective volume, fatigue (ACWR), plateau status, e1RM trends, periodization phase, per-muscle strength_climb, and reasoning. |
 | `get_muscle_group_progress` | Raw weekly progress series for a muscle group (volume, set counts, e1RM) for charting and analysis. |
-| `get_exercise_progress` | Up to 8 weeks of progress for a specific lift: weekly e1RM trend, personal records, plateau detection, last session, the authoritative strength_state (progressing/holding/stalling) matching the iOS lift detail page, and strength_climb (indexed_pct + now-vs-baseline e1RM). |
+| `get_exercise_progress` | Up to 8 weeks of progress for a specific lift: weekly e1RM trend, personal records, plateau detection, last session, the authoritative strength_state (progressing/holding/stalling) matching the iOS lift detail page, strength_climb (indexed_pct + now-vs-baseline e1RM), all-time bests, and each progression-line member with its own bests. hard_sets is fractional hard-set credit. |
 | `list_trained_exercises` | Enumerate the exercises you have actually trained: exercise IDs, training frequency, recency, e1RM trend coverage (can_trend + why not), and a data_quality summary — use it to pick a valid exercise_id before get_exercise_progress and to see which lifts have enough data to trend. |
 | `query_sets` | Query raw set-level data with flexible filters (exercise, muscle group, muscle, IDs) for custom analysis or export. |
+| `explain_rule` | The evidence behind one of Povver's training rules (how sets are counted, when weight or reps go up, why a weight dropped, the comeback after a break): the rule, why, what it means for you, and the research it comes from. The same cards the in-app coach answers from; an unknown topic returns the topic index. |
 | `get_training_status` | Lightweight status: weekly adherence vs goal, next scheduled workout, last workout date, and days since training. |
 | `get_periodization_plan` | Get your current periodization plan: auto-generated or authored (Claude-authored override). Returns the plan structure, phases, day templates, and status. |
 
